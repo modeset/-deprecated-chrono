@@ -1,4 +1,4 @@
-punch
+Chrono
 =====
 
-Simple timekeeping system - make it easy to remember how you spend your hours
+Simple timekeeping system - make it easy to remember how you're spending your hours
