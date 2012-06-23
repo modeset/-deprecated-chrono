@@ -14,7 +14,7 @@ class StatusesController < ApplicationController
 
   def create
     @status = current_user.statuses.create params[:status]
-    respond_with :status
+    respond_with :status, location: statuses_path
   end
 
 end
