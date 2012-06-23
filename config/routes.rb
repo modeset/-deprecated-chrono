@@ -1,6 +1,14 @@
 Chrono::Application.routes.draw do
+
+  resources :statuses, :only => [ :index, :create ]
+
+  resource :profile, :only => :show
+
   # Omniauth Callback Routes
   match '/auth/:provider/callback', to: 'sessions#create'
+
+
+  root :to => redirect('/statuses')
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

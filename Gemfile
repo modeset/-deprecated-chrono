@@ -11,6 +11,7 @@ gem 'underoos'
 
 gem 'responders'
 gem 'haml-rails'
+gem 'formtastic'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -32,8 +33,10 @@ gem 'jquery-rails'
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# To use debugger
-gem 'pry'
+group :development, :test do
+  gem 'rspec'
+  gem 'pry'
+end
 
 # Heroku
 group :production do

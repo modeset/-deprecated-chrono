@@ -1,0 +1,27 @@
+!!! 5
+%html
+  %head
+    %title Chrono
+    = stylesheet_link_tag 'underoos', :media => 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+  %body
+    .navbar
+      .navbar-inner
+        .container
+          %a.btn.info.btn-navbar{ :data => { :toggle => 'collapse', :target => '#collapse_example' } }
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand{href: '#'} 
+            = image_tag 'modeset-logotype-800x80.png', :width => '100'
+          %nav.nav-collapse#collapse_example
+            %ul.nav
+              %li.active
+                = link_to 'Status', statuses_path
+            %section.pull-right
+              %ul.nav
+                %li
+                  = link_to current_user.name, profile_path
+    = yield

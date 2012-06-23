@@ -1,0 +1,19 @@
+= form_for @status, :html => { :class => 'form-inline well dark' } do |f|
+  = f.text_field :message, :label => false
+  = f.submit 'Update', :class => 'btn primary'
+
+%table.vborder
+  %thead
+    %tr
+      %th(colspan=2)
+  %tfoot
+    %tr
+      %td(colspan=2)
+  - @statuses.each do |status|
+    %tr
+      %td.message
+        = status.message
+        - if status.current?
+          %span.decal.primary Current
+      %td.duration= "#{number_with_precision(status.duration_in_hours, precision: 2, strip_insignificant_zeros: true)} hours"
+
