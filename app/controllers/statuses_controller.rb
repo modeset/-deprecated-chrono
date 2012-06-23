@@ -9,12 +9,12 @@ class StatusesController < ApplicationController
   def index
     @status = Status.new
     @statuses = current_user.statuses
-    respond_with :statuses
+    respond_with @statuses
   end
 
   def create
     @status = current_user.statuses.create params[:status]
-    respond_with :status, location: statuses_path
+    respond_with @status, location: statuses_path
   end
 
 end

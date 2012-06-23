@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
 
   def show
     @user = current_user
-    respond_with :user
+    respond_with @user
   end
 
 end
