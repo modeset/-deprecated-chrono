@@ -1,0 +1,46 @@
+
+// Settings for button groups and toolbars
+.button-group
+  +clearfixer
+  +box-sizing(border-box)
+  position: relative
+
+.button-group + .button-group
+  margin-left: 0.5em
+
+.button-toolbar .button-group
+  +inline-block
+
+.button-group .dropdown-toggle:active,
+.button-group.open .dropdown-toggle
+  outline: 0
+
+// Inherits from .dropdown.open .dropdown-menu
+.button-group.open .dropdown-menu
+  margin-top: 1px
+
+// Overrides and settings specific for the `.btn` class
+.button-group .btn
+  border-radius: 0
+  float: left
+  margin-left: -1px
+  position: relative
+
+.button-group .btn:first-child
+  border-top-left-radius: $radii
+  border-bottom-left-radius: $radii
+
+.button-group .btn:last-child,
+.button-group .dropdown-toggle
+  border-top-right-radius: $radii
+  border-bottom-right-radius: $radii
+
+.button-group .btn:hover,
+.button-group .btn:focus,
+.button-group .btn:active,
+.button-group .btn.active
+  z-index: 2
+
+.button-group.open .btn.dropdown-toggle
+  +box-shadow($inset_dark)
+

@@ -1,0 +1,16 @@
+
+.well
+  +box-sizing(border-box)
+  border: 1px solid $component_border
+  border-radius: $radii
+  background-color: transparent
+  margin-bottom: 1.25em
+  padding: 1.25em
+  &.lite
+    background-color: $off_white
+  &.dark
+    background-color: $off_grey
+  &.primary
+    background-color: $primary
+    border-color: darken($primary, 30%)
+

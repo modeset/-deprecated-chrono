@@ -1,0 +1,72 @@
+
+//  Buttons look boxy and sexy
+@mixin btn-button($bg, $color:#fff, $padding:0.4em 0.7em, $radii:$radii)
+  +box-sizing(border-box)
+  +font-size($base_font_size)
+  +inline-block
+  +transition(all $speed)
+  background: $bg
+  background-clip: padding-box
+  border: 1px solid darken($bg, 30%)
+  border-radius: $radii
+  color: $color
+  cursor: pointer
+  line-height: 1.1
+  text-shadow: $text_inset_lite
+  padding: $padding
+  &:visited
+    color: $color
+  &:hover, &:focus, &.active
+    background: darken($bg, 3%)
+    color: $color
+  &:hover, &.active
+    border: 1px solid darken($bg, 40%)
+  &:hover
+    +box-shadow($inset_lite)
+  &:focus
+    +box-shadow($focus_glow, $inset_lite)
+    border: 1px solid $focus_border
+    outline: 0
+  &:active, &.active
+    +box-shadow($inset_dark)
+  &.error
+    border: 1px solid $error
+    &:focus
+      +box-shadow($error_glow, $inset_lite)
+      outline: 0
+  &.disabled, &[disabled], &[readonly]
+    +box-shadow(none)
+    +opacity(0.5)
+    background-color: $bg
+    border: 1px solid darken($bg, 20%)
+  &.small
+    +font-size($base_font_size - 2)
+    line-height: 0.9
+  &.large
+    +font-size($base_font_size + 2)
+    line-height: 1.3
+  .caret
+    border-top-color: $color
+    margin: 0.5em 0 0 0.5em
+
+// Override specific properties for `.btn` colorways
+@mixin btn-override($bg, $color:#fff)
+  background: $bg
+  border: 1px solid darken($bg, 20%)
+  color: $color
+  text-shadow: $text_inset_dark
+  &:visited
+    color: $color
+  &:hover, &:focus, &.active
+    background: darken($bg, 3%)
+  &:hover, &.active
+    border: 1px solid darken($bg, 30%)
+  &:focus
+    border: 1px solid $focus_border
+  &.error
+    border: 1px solid $error
+  &.disabled, &[disabled], &[readonly]
+    background-color: $bg
+  .caret
+    border-top-color: $color
+

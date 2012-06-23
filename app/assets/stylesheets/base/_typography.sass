@@ -1,0 +1,185 @@
+
+// ## Typography
+
+// Heading Styles
+h1, h2, h3, h4, h5, h6
+  color: $header_color
+  line-height: 1
+  margin-bottom: 0.1em
+
+h1
+  +font-size(36)
+
+h2
+  +font-size(30)
+
+h3
+  +font-size(24)
+
+h4
+  +font-size(20)
+
+h5
+  +font-size(18)
+
+h6
+  +font-size(18)
+  font-style: italic
+
+// Paragraph Styles
+p
+  font-style: normal
+p a:hover
+  text-decoration: underline
+
+small
+  font-size: 85%
+
+b, strong
+  font-style: bold
+
+sub, sup
+  font-size: 75%
+  line-height: 0
+  position: relative
+  vertical-align: baseline
+
+sup
+  top: -0.5em
+
+sub
+  bottom: -0.25em
+
+address
+  font-style: normal
+
+abbr, dfn
+  border-bottom: 1px dotted
+  cursor: help
+  font-size: 90%
+  font-style: normal
+  text-transform: uppercase
+
+// Code
+pre, code, kbd, samp
+  font-family: $code_norm
+  _font-family: "courier new", monospace
+
+code, kbd, samp
+  background: $off_white
+  border: 1px solid lighten($component_border, 10%)
+  font-size: 85%
+  padding: 0 0.3em
+
+code
+  color: $red
+
+pre
+  background: $off_white
+  border: 1px solid $component_border
+  margin: 1em 0
+  padding: 0.75em
+  font-size: 85%
+  text-shadow: 0 1px 0 $white
+  white-space: pre
+  white-space: pre-wrap
+  word-wrap: break-word
+  overflow: hidden
+
+pre code
+  padding: 0
+  border: 0
+  background: transparent
+
+// .pln, .pun, .opn, .clo => color: body_color
+pre.prettyprint
+  .com
+    color: #93a1a1
+  .lit
+    color: #195f91
+  .fun
+    color: #cb4b15
+  .kwd, .tag
+    color: #258ad2
+  .str, .atv
+    color: #859900
+  .atn, .type, .dec, .var
+    color: #d33682
+
+// Blockquotes
+blockquote
+  font-family: $serif_norm
+  margin: 1em
+  padding: 0 10%
+
+blockquote p
+  +font-size(16)
+  font-style: italic
+
+blockquote small
+  display: block
+  margin-top: 0.75em
+  &:before
+    content: '\2014 \00A0'
+
+blockquote cite
+  border-bottom: 1px dotted
+  cursor: help
+  font-style: normal
+
+q:before, q:after,
+blockquote:before,
+blockquote:after
+  content: ""
+
+
+// Misc
+hr
+  display: block
+  height: 1px
+  border: 0
+  border-top: 1px solid $hr_color
+  margin: 1em 0
+  &.dotted
+    border-top-style: dotted
+  &.dashed
+    border-top-style: dashed
+
+mark
+  background: $yellow
+  padding: 0 0.3em
+
+// LISTS
+
+// Ordered and Unordered Lists
+ul
+  list-style: square inside
+
+ol
+  list-style: decimal inside
+
+ul li, ol li
+  margin-left: 0.25em
+
+ul ul li, ul ol li,
+ol ul li, ol ol li
+  margin-left: 1.5em
+
+// Navigation and unstyled Lists
+nav ul, nav ol, ul.unstyled, ol.unstyled
+  list-style: none
+  list-style-image: none
+  ul li, ol li, li
+    margin-left: 0
+    padding: 0
+
+// Definition Lists
+dl dt
+  font-weight: bold
+  margin-top: 0.5em
+  &:after
+    content: ":"
+
+dl dd
+  font-weight: normal
+

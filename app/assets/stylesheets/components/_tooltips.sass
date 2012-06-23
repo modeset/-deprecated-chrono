@@ -1,0 +1,46 @@
+
+.tooltip
+  +font-size(12)
+  +opacity(0)
+  font-weight: bold
+  padding: 5px
+  display: block
+  position: absolute
+  visibility: visible
+  z-index: $zindex_tips
+  &.in
+    +opacity(0.9)
+  &.top
+    margin-top: -2px
+  &.bottom
+    margin-top: 2px
+  &.left
+    margin-left: -2px
+  &.right
+    margin-left: 2px
+  &.top .tooltip-arrow
+    +arrow_south(invert($body_bg))
+    bottom: 0
+    left: 50%
+  &.bottom .tooltip-arrow
+    +arrow_north(invert($body_bg))
+    top: 0
+    left: 50%
+  &.left .tooltip-arrow
+    +arrow_east(invert($body_bg))
+    top: 50%
+    right: 0
+  &.right .tooltip-arrow
+    +arrow_west(invert($body_bg))
+    top: 50%
+    left: 0
+
+.tooltip-inner
+  background-color: invert($body_bg)
+  border-radius: $radii
+  color: $body_bg
+  text-align: center
+  line-height: 1.4
+  padding: 0.25em 0.7em
+  max-width: 200px
+

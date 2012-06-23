@@ -1,0 +1,18 @@
+
+.carousel
+  +clearfixer
+
+.carousel-container
+  overflow: hidden
+  width: 100%
+
+.carousel-inner
+  -webkit-transform: translateZ(0)
+  +transition(all $speed $ease-in-out-quart)
+  width: 1000%
+
+.carousel .carousel-panel
+  +box-sizing(border-box)
+  float: left
+  width: 10%
+

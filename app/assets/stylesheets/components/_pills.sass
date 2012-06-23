@@ -1,0 +1,64 @@
+
+// Default Pills
+.pills > li
+  float: left
+  margin-top: 0.3em
+
+.pills > li > a
+  border-radius: $radii
+  margin-right: 0.15em
+  padding: 0.4em 0.85em
+  text-shadow: $text_drop_lite
+  &:hover
+    background-color: $component_bg_hover
+
+.pills .active > a,
+.pills li > a:active
+  +box-shadow($inset_dark)
+
+.pills .active > a,
+.pills .active > a:hover
+  background-color: $component_bg_active
+  color: $component_active
+  text-shadow: $text_inset_dark
+
+// Stacked Pills
+.pills.stacked > li
+  float: none
+  margin-top: 0
+
+.pills.stacked > li > a
+  margin: 0.14em 0
+
+// Dropdown Pills
+.pills .dropdown-menu
+  margin-top: 1px
+
+.pills .active .dropdown-toggle .caret
+  border-top-color: $component_active
+
+.pills .open .dropdown-toggle,
+.pills .open.active > a:hover
+  background-color: darken($component_bg_hover, 35%)
+  border-color: $component_border
+  color: $component_active
+  text-shadow: none
+
+.pills .open .caret,
+.pills .open.active .caret,
+.pills .open a:hover .caret
+  border-top-color: $component_active
+
+.pills.stacked .dropdown-menu
+  border: none
+  margin-top: 0
+  max-width: none
+  width: 100%
+
+// Togglable pill panes
+.pill-content > .pill-pane
+  +visuallyhidden
+
+.pill-content > .active
+  +visuallyshown
+

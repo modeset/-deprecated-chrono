@@ -1,0 +1,22 @@
+
+// Nav List
+.nav-list > li > a
+  border-radius: $radii
+
+.nav-list .active > a,
+.nav-list li > a:active
+  +box-shadow($inset_dark)
+
+.nav-list > li > a
+  text-shadow: $text_drop_lite
+  padding: 0.4em 1em
+
+.nav-list > li > a:hover
+  background-color: $component_bg_hover
+
+.nav-list .active > a,
+.nav-list .active > a:hover
+  background-color: $component_bg_active
+  color: $component_active
+  text-shadow: $text_inset_dark
+

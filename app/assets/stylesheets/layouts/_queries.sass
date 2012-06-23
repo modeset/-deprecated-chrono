@@ -1,0 +1,121 @@
+
+// Mixin the container sizes
+@mixin resize_containers($base_value)
+  .container
+    max-width: $base_value * 1px
+    &.fluid, &.fixed
+      max-width: none
+    &.fixed
+      width: $base_value * 1px
+
+// Large screens
+@media (min-width: 1200px)
+  +resize_containers(1200)
+
+// Default desktop and tablet portrait
+@media (min-width: 890px)
+  .nav-collapse.collapse
+    height: auto !important
+    overflow: visible !important
+
+// This is the point where your navigation needs to collapse
+@media (max-width: 889px)
+  .navbar.fixed
+    position: static
+  .navbar .nav-collapse
+    clear: left
+  .navbar .nav,
+  .navbar .nav > li
+    float: none
+
+  .navbar .dropdown-menu
+    +box-shadow(none)
+    background-color: transparent
+    border: none
+    border-radius: 0
+    position: static
+    top: auto
+    left: auto
+    display: block
+    float: none
+    margin: 0 0.5em
+    padding: 0
+    clip: auto
+    height: auto
+    width: auto
+    max-width: none
+    overflow: visible
+
+  .navbar .dropdown .dropdown-toggle,
+  .navbar .dropdown .dropdown-toggle:hover,
+  .navbar .dropdown .dropdown-toggle:active,
+  .navbar .nav .open > .dropdown-toggle,
+  .navbar .nav .active > .dropdown-toggle,
+  .navbar .nav .open.active > .dropdown-toggle
+    +box-shadow(none)
+    background-color: transparent
+    color: $component_normal
+    padding-bottom: 0.25em
+    text-shadow: none
+    cursor: default
+
+  .navbar .dropdown .caret
+    display: none
+
+  .btn-navbar
+    display: block
+
+  .nav-collapse
+    height: 0
+    overflow: hidden
+
+  .navbar .dropdown-menu .divider
+    display: none
+
+  .navbar form,
+  .navbar .pull-right
+    float: none
+
+// Portrait tablet and below
+@media (max-width: 768px)
+  +resize_containers(768)
+
+// Landscape mobile and below
+@media (max-width: 480px)
+  +resize_containers(480)
+
+  input[type="checkbox"],
+  input[type="radio"]
+    border: 1px solid #ccc
+
+  .form-horizontal,
+  .default-manage-form
+    li > label
+      float: none
+      padding-top: 0
+      text-align: left
+      width: auto
+
+    .boolean > label,
+    .choice > label,
+    .hint
+      padding-left: 0
+
+    .form-actions,
+    form .buttons
+      padding-left: 0.75em
+      padding-right: 0.75em
+
+    .modal
+      position: absolute
+      margin: 0
+      top: 10px
+      left: 10px
+      right: 10px
+      width: auto
+
+
+// Portrait mobile
+@media (max-width: 320px)
+  +resize_containers(320)
+

@@ -1,0 +1,85 @@
+
+.dropdown
+  position: relative
+
+.dropdown-toggle:active,
+.dropdown.open .dropdown-toggle
+  outline: 0
+
+.dropdown .caret
+  margin: 0.5em 0 0 0.5em
+
+.dropdown:hover .caret,
+.dropdown.open .caret
+  border-top-color: $link_hover
+
+// To get IE7 support, comment out +visuallyhidden and uncomment display:none
+.dropdown-menu
+  +visuallyhidden
+  // display: none
+  +box-shadow($drop_dark)
+  background-clip: padding-box
+  background-color: $body_bg
+  border-radius: 0 0 $radii $radii
+  list-style: none
+  float: left
+  top: 100%
+  left: 0
+  min-width: 160px
+  z-index: $zindex_dropdown
+  &.drop-up
+    border-radius: $radii
+    top: auto
+    bottom: 100%
+
+.dropdown-menu li > a
+  color: $component_normal
+  display: block
+  padding: 0.3em 1em
+  clear: both
+  white-space: nowrap
+
+.dropdown-menu li > a:hover,
+.dropdown-menu .active > a,
+.dropdown-menu .active > a:hover
+  color: $component_active
+  background-color: $component_bg_active
+
+.dropdown-menu li > a:active,
+.dropdown-menu .active > a,
+.dropdown-menu .active > a:hover
+  +box-shadow($inset_dark)
+
+// Kinda like an hr
+.dropdown-menu .divider
+  background-color: $component_border
+  border-bottom: 1px solid lighten($component_border, 15%)
+  margin: 0.3em 1px
+  height: 1px
+  overflow: hidden
+
+// Open state for the dropdown
+.dropdown.open .dropdown-toggle
+  color: $link_hover
+
+
+.dropdown.open .dropdown-menu,
+.typeahead.dropdown-menu,
+.button-group.open .dropdown-menu
+  +visuallyshown
+  display: block
+  position: absolute
+  clip: initial
+  border: 1px solid $component_border
+  padding: 0.3em 0
+  &.drop-up
+    margin-bottom: 2px
+
+.typeahead.dropdown-menu
+  display: none
+
+// Redeclare for specificity purposes
+.pull-right .dropdown-menu
+  left: auto
+  right: 0
+

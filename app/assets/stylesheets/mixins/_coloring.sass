@@ -1,0 +1,6 @@
+
+// Fills a background color and darkens the border based off a percentage
+@mixin background-darken-border($color, $percentage:20%)
+  background-color: $color
+  border: 1px solid darken($color, $percentage)
+

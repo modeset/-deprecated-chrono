@@ -1,0 +1,108 @@
+
+// Base notification used for @extends
+.base-notification
+  +background-darken-border($standard)
+  border-radius: $radii
+  position: relative
+  padding: 0.75em
+  margin: 1em 0
+  a
+    text-decoration: underline
+  header, footer, p
+    padding-right: 1.2em
+  header
+    margin-bottom: 0.5em
+  footer
+    margin-top: 1.25em
+    &.footer-right
+      text-align: right
+  .close
+    position: absolute
+    top: 7px
+    right: 10px
+
+// Main notification message
+.notification
+  @extend .base-notification
+  text-shadow: $text_drop_lite
+  &.info, &.notice
+    +background-darken-border(lighten($info, 20%))
+  &.important
+    +background-darken-border(lighten($important, 40%))
+    color: $important
+    .heading
+      color: $important
+  &.success
+    +background-darken-border(lighten($success, 40%))
+    color: $success
+    .heading
+      color: $success
+  &.warning
+    +background-darken-border(lighten($warning, 30%))
+    color: darken($warning, 15%)
+    .heading
+      color: darken($warning, 15%)
+  &.danger, &.error, &.alert
+    +background-darken-border(lighten($danger, 40%))
+    color: $danger
+    .heading
+      color: $danger
+  &.primary
+    +background-darken-border(lighten($primary, 40%))
+    color: $primary
+    .heading
+      color: $primary
+
+// Flash messages container
+.flash-messages,
+.flash-messages.top
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  z-index: $zindex_flash_message
+
+.flash-messages.bottom
+  top: auto
+  bottom: 0
+
+.flash-messages.top-left,
+.flash-messages.top-center,
+.flash-messages.top-right
+  top: 1.5em
+
+.flash-messages.top-left,
+.flash-messages.top-center,
+.flash-messages.middle
+  right: auto
+
+.flash-messages.top-left,
+.flash-messages.top-right
+  width: 25%
+
+.flash-messages.top-left
+  left: 1.5em
+
+.flash-messages.top-center,
+.flash-messages.middle
+  left: 25%
+  width: 50%
+
+.flash-messages.middle
+  top: 45%
+
+.flash-messages.top-right
+  left: auto
+  right: 1.5em
+
+// Override some of the settings for full screen messages
+.flash-messages .notification,
+.flash-messages .pop-notification
+  margin: 0
+
+.flash-messages.top .notification,
+.flash-messages.top .pop-notification,
+.flash-messages.bottom .notification,
+.flash-messages.bottom .pop-notification
+  border-radius: 0
+

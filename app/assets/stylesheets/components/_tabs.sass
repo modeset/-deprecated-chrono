@@ -1,0 +1,93 @@
+
+// Default Tabs
+.tabs
+  border-bottom: 1px solid $component_border_alt
+
+.tabs > li
+  float: left
+  margin-bottom: -1px
+
+.tabs > li > a
+  border: 1px solid transparent
+  border-radius: $radii $radii 0 0
+  margin-right: 0.15em
+  padding: 0.6em 0.85em
+  text-shadow: $text_drop_lite
+  &:hover
+    background-color: $component_bg_hover
+    border-color: $component_bg_hover $component_bg_hover $component_border_alt
+
+.tabs > .active > a,
+.tabs > .active > a:hover
+  background-color: $body_bg
+  border: 1px solid $component_border_alt
+  border-bottom-color: transparent
+
+// Stacked Tabs
+.tabs.stacked
+  border-bottom: 0
+
+.tabs.stacked > li
+  float: none
+
+.tabs.stacked > li > a
+  border: 1px solid $component_border_alt
+  border-radius: 0
+  margin-right: 0
+  padding: 0.4em 0.85em
+  &:hover
+    border-color: $component_border_alt
+    z-index: 2
+
+.tabs.stacked > li:first-child > a
+  border-radius: $radii $radii 0 0
+.tabs.stacked > li:last-child > a
+  border-radius: 0 0 $radii $radii
+
+.tabs.stacked .active > a,
+.tabs.stacked li > a:active
+  +box-shadow($inset_dark)
+
+.tabs.stacked .active > a,
+.tabs.stacked .active > a:hover
+  background-color: $component_bg_active
+  color: $component_active
+  text-shadow: $text_inset_dark
+
+// Dropdown Tabs
+.tabs .dropdown-menu
+  border-top: 0
+  border-color: $component_border_alt
+
+.tabs .active .caret
+  border-top-color: $link_hover
+
+.tabs.stacked .caret
+  float: right
+.tabs.stacked .active .caret
+  border-top-color: $component_active
+
+.tabs .open .dropdown-toggle,
+.tabs .open.active .dropdown-toggle,
+.tabs .open.active > a:hover
+  background-color: darken($component_bg_hover, 35%)
+  border-color: $component_border_alt
+  color: $component_active
+  text-shadow: none
+
+.tabs .open .caret,
+.tabs .open.active .caret,
+.tabs .open a:hover .caret
+  border-top-color: $component_active
+
+.tabs.stacked .dropdown-menu
+  border: none
+  max-width: none
+  width: 100%
+
+// Togglable tab panes
+.tab-content > .tab-pane
+  +visuallyhidden
+.tab-content > .active
+  +visuallyshown
+

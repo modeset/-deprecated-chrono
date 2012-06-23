@@ -1,0 +1,22 @@
+
+.breadcrumb > li
+  +inline-block
+  color: $component_normal
+  font-weight: bold
+  &:after
+    content: " /"
+  &:last-child:after
+    content: ""
+
+.breadcrumb > li > a
+  display: inline
+  color: $link_normal
+
+.breadcrumb > li > a:hover,
+.breadcrumb > li > a:active
+  color: $link_hover
+
+.breadcrumb > .active > a,
+.breadcrumb > .active > a:hover
+  color: $component_normal
+

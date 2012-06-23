@@ -1,0 +1,25 @@
+
+// The "x" close button used in messaging systems.
+// In your markup use `&times;` for the content
+.close
+  +font-size(20)
+  +opacity(0.3)
+  float: right
+  cursor: pointer
+  color: $black
+  font-weight: bold
+  line-height: 1
+  text-shadow: $text_drop_lite
+  text-decoration: none !important
+  &:visited, &:hover, &:active
+    color: $black
+  &:hover, &:active
+    +opacity(0.5)
+
+// The alternative is reversed white on black
+.close.alt
+  color: $white
+  text-shadow: $text_drop_dark
+  &:visited, &:hover, &:active
+    color: $white
+

@@ -1,0 +1,64 @@
+
+// The main container for the upgrade notification
+#upgrade_notifications
+  display: none
+  color: $white
+  font-weight: bold
+  position: absolute
+  top: 10px
+  left: 10px
+  z-index: 99999
+
+// Settings for the icon
+#upgrade_notifications .upgrade-icon
+  background-color: $danger
+  border: 1px solid darken($danger, 10%)
+  cursor: pointer
+  font-size: 1em
+  line-height: 1
+  text-align: center
+  width: 1.2em
+  height: 1.2em
+
+// Settings for block message
+#upgrade_notifications .upgrade-notification
+  background-color: $danger
+  border: 1px solid darken($danger, 10%)
+  cursor: default
+  font-size: 0.85em
+  text-align: left
+  display: none
+  margin-top: 0.2em
+  padding: 0.75em
+  position: relative
+  top: 0
+  left: 0
+  width: 200px
+
+// Make the links readable
+#upgrade_notifications .upgrade-notification a
+  color: $white
+  text-decoration: underline
+
+// Show the message on hover
+#upgrade_notifications .upgrade-icon:hover .upgrade-notification
+  display: block
+
+// Default all message containers to be hidden
+#upgrade_notifications .upgrade-container
+  display: none
+
+// Space out multiple containers
+#upgrade_notifications .upgrade-container + .upgrade-container
+  margin-top: 1em
+
+// Show the upgrade notifications if a condition is met
+html.no-js #upgrade_notifications,
+html.lt-ie8 #upgrade_notifications
+  display: block
+
+// Show the correct notification container
+html.no-js #upgrade_notifications #no_js,
+html.lt-ie8 #upgrade_notifications #lt_ie8
+  display: block
+

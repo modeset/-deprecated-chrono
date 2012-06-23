@@ -1,0 +1,362 @@
+
+// ## Form containers and base settings
+form
+  margin: 0
+
+fieldset
+  border: 0
+
+form ol, form ul, form li
+  margin: 0
+  padding: 0
+
+form ol, form ul
+  +clearfixer
+  list-style-image: none
+  list-style-type: none
+
+form li
+  display: block
+  margin-bottom: 1em
+  &:last-child
+    margin-bottom: 0
+
+@mixin form-placeholder
+  color: $placeholder
+
+\:-moz-placeholder
+  +form-placeholder
+
+\::-webkit-input-placeholder
+  +form-placeholder
+
+
+// ## Description elements
+form abbr[title]
+  border: none
+  margin-left: 0.25em
+
+legend + ol,
+legend + ul
+  margin-top: 1.5em
+  -webkit-margin-top-collapse: separate
+
+legend
+  display: block
+  border-bottom: 1px solid $component_border
+  color: $header_color
+  font-size: 1.25em
+  padding-bottom: 0.25em
+  width: 100%
+
+label
+  display: block
+  font-size: 0.85em
+  margin-bottom: 0.3em
+
+.hint
+  display: block
+  color: lighten($body_color, 20%)
+  font-size: 0.92em
+  margin-top: 0.25em
+
+
+// ## Form controls
+input,
+textarea,
+select,
+.uneditable
+  +box-sizing(border-box)
+  +font-size($base_font_size)
+  +inline-block
+  border: 1px solid $component_border
+  border-radius: $radii
+  color: $body_color
+  padding: 0.4em
+  vertical-align: middle
+
+input,
+textarea,
+.uneditable
+  +box-shadow($input_inset_shadow)
+  +transition(border $speed, box-shadow $speed, background-color $speed)
+
+select
+  background-color: $white
+  line-height: 28px
+  height: 28px
+
+label input,
+label textarea,
+label select
+  display: block
+
+// Specific styles for special input types
+.search-query
+  border-radius: 1em
+  margin-bottom: 0
+  padding-left: 1em
+  padding-right: 1em
+
+.uneditable
+  background-color: $off_white
+  cursor: not-allowed
+
+// ## Perform resets on odd controls before defining again
+select[multiple],
+select[size]
+  height: auto
+
+input[type="file"]
+  +box-shadow(none)
+  background-color: $white
+  background-color: initial
+  border: initial
+  line-height: initial
+  margin-top: 0.3em
+  padding: initial
+
+input[type="image"]
+  border-color: transparent
+  border-radius: 0
+  margin: 0
+  padding: 0
+
+
+// ## Radio and Checkboxes
+input[type="checkbox"],
+input[type="radio"]
+  +inline-block
+  border: 0
+  border-radius: 0
+  margin: -0.3em 0.3em 0 0
+  padding: 0
+  vertical-align: middle
+
+form .choices-group
+  margin: 1em 0
+form .choices-group li
+  margin: 0
+
+form .boolean,
+form .choice
+  margin-bottom: 0.3em
+
+form .boolean > label,
+form .choice > label
+  +font-size($base_font_size)
+
+form .boolean.inline,
+form .choice.inline
+  +inline-block
+  margin-right: 1em
+  vertical-align: middle
+
+
+// ## Focus states
+input:focus,
+textarea:focus
+  +box-shadow($input_inset_shadow, $focus_glow)
+  background-color: $off_white
+  border-color: $focus_border
+  outline: 0
+  outline: thin dotted \9
+
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus,
+select:focus
+  +box-shadow(none)
+  +tab-focus
+
+// ## Disabled states
+input,
+textarea,
+select,
+.uneditable
+  &.disabled, &[disabled], &[readonly]
+    +box-shadow(none)
+    background-color: $disabled_bg
+    border-color: $disabled_border
+    color: $disabled_color
+    cursor: not-allowed
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"]
+  &.disabled:hover,
+  &[disabled]:hover,
+  &[readonly]:hover
+    color: $disabled_color
+
+input[type="file"][disabled],
+input[type="file"][readonly]
+  background-color: $white
+  background-color: initial
+  border: initial
+
+input[type="image"][disabled],
+input[type="image"][readonly]
+  +opacity(0.5)
+
+form .disabled label,
+form .disabled .hint
+  color: $disabled_color
+
+// ## Error, Warning Success states
+@mixin form-states($highlight)
+  label, .hint
+    color: $highlight
+
+  input, select, textarea
+    color: $highlight
+    border-color: $highlight
+    &:focus
+      +box-shadow(0 0 6px lighten($highlight, 20%))
+      border-color: darken($highlight, 10%)
+      color: $highlight
+
+  .uneditable
+    border-color: $highlight
+    color: $highlight
+
+  input[type="button"]:hover,
+  input[type="submit"]:hover,
+  input[type="reset"]:hover
+    border-color: darken($highlight, 10%)
+    color: $highlight
+
+form .error
+  +form-states($error)
+form .success
+  +form-states($success)
+form .warning
+  +form-states(darken($warning, 10%))
+
+// HTML5 invalid states
+input:focus:required:invalid,
+textarea:focus:required:invalid,
+select:focus:required:invalid
+  border-color: $error
+  color: $error
+  &:focus
+    +box-shadow(0 0 6px lighten($error, 20%))
+    border-color: darken($error, 10%)
+
+
+// Button group containers
+.form-actions,
+form .buttons
+  background-color: $off_white
+  border-top: 1px solid $component_border
+  margin-top: 1em
+  margin-bottom: 1em
+  padding: 1.5em
+  &.dark
+    background-color: darken($off_grey, 3%)
+
+.form-actions li,
+form .buttons li
+  +inline-block
+  margin: 0
+  vertical-align: middle
+
+
+// ## Form layouts
+.form-search,
+.form-inline,
+.form-horizontal,
+.default-manage-form
+  input,
+  textarea,
+  select,
+  .uneditable
+    +inline-block
+    margin-bottom: 0
+
+.form-inline label,
+.form-search label
+  +inline-block
+  margin-bottom: 0
+
+
+// ## Horizontal specific overrides
+.form-horizontal,
+.default-manage-form
+  li
+    +clearfixer
+  li > input,
+  li > textarea,
+  li > select,
+  li > .uneditable
+    margin-left: 1em
+
+  li > label
+    float: left
+    padding-top: 0.5em
+    width: $horiz_offset
+    text-align: right
+
+  .boolean > label,
+  .choice > label
+    float: none
+    margin-left: 1em
+    padding-top: 0
+    padding-left: $horiz_offset
+    width: auto
+    text-align: left
+
+  .boolean.inline + .boolean.inline > label,
+  .choice.inline + .choice.inline > label
+    margin-left: 0
+    padding-left: 0
+
+  .form-actions,
+  form .buttons
+    padding-left: $horiz_offset
+
+  .hint
+    margin-left: 1.2em
+    padding-left: $horiz_offset
+
+
+// ## Convenience classes for sizing
+.input-xsmall
+  width: 12.5%
+.input-small
+  width: 25%
+.input-medium
+  width: 50%
+.input-large
+  width: 75%
+.input-xlarge
+  width: 100%
+
+// ## Content Editable states
+[contenteditable="true"]
+  border: 1px dotted transparent
+
+[contenteditable="true"]:hover
+  border-color: $primary
+
+[contenteditable="true"]:focus
+  +box-shadow($input_inset_shadow, $focus_glow)
+  background-color: $off_white
+  border-style: solid
+  border-color: $focus_border
+  outline: 0
+  outline: thin dotted \9
+
+// Specific settings for formtastic
+.default-manage-form .well
+  background-color: $off_white
+
+form .buttons input[type="button"],
+form .buttons input[type="submit"]
+  +btn-button($standard, $grey6)
+  +btn-override($primary, $white)
+
+form .buttons input[type="reset"]
+  +btn-button($standard, $grey6)
+  +btn-override($danger, $white)
+

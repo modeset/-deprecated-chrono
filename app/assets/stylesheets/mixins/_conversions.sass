@@ -1,0 +1,25 @@
+
+// Converts target `px` value to `em` in context constraints of the base font size
+@function to_em($target_px, $context:$base_font_size)
+  @return ($target_px / $context) * 1em
+
+// Converts target `px` value to `rem` in context constraints of the user's base font size
+@function to_rem($target_px, $context:$context_px)
+  @return ($target_px / $context) * 1rem
+
+// Converts target `px` value to `percentage` in context constraints of the container's width
+@function to_percent($target_px, $context:$base_width)
+  @return percentage($target_px / $context)
+
+// Returns the vertical rhythm in pixels calculated from the `$base_vertical` setting
+@function vertical_pixel($target_px)
+  @return ($base_vertical / $target_px) * 1px
+
+// Returns the vertical rhythm in em calculated from the `$base_vertical` setting
+@function vertical_em($target_px)
+  @return to_em(($base_vertical / $target_px), $base_font_size)
+
+// Returns the vertical rhythm in percent calculated from the `$base_vertical` setting
+@function vertical_percent($target_px)
+  @return to_percent(($base_vertical / $target_px), $base_font_size)
+

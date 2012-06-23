@@ -1,0 +1,61 @@
+
+// Allow images to be fluid
+img
+  max-width: 100%
+
+// Base Navs, used by tabs, pills, breadcrumbs, pagination, and navigation lists
+.nav
+  +clearfixer
+  list-style: none
+
+.nav > li > a
+  display: block
+
+.nav.inline > li
+  float: left
+
+.nav.inline > li > a
+  padding-left: 0.5em
+  padding-right: 0.5em
+
+// Active states for navs get a default cursor
+.nav > .active > a,
+.nav > .active > a:hover
+  cursor: default
+.nav > .dropdown.active > a:hover
+  cursor: pointer
+
+// Headers within a Nav
+.nav .nav-header
+  display: block
+  color: $component_normal
+  font-size: 0.75em
+  font-weight: bold
+  text-transform: uppercase
+  text-shadow: $text_drop_lite
+  padding: 0.4em 1em
+
+.nav li + .nav-header
+  margin-top: 1em
+
+
+// Buttons
+.btn
+  +btn-button($standard, $grey6)
+  &.info
+    +btn-override($info, $white)
+  &.important
+    +btn-override($important, $white)
+  &.success
+    +btn-override($success, $white)
+  &.warning
+    +btn-override($warning, $white)
+  &.danger
+    +btn-override($danger, $white)
+  &.primary
+    +btn-override($primary, $white)
+
+// Fix standard links to closer resemble `button` elements
+a.btn
+  font-weight: bold
+

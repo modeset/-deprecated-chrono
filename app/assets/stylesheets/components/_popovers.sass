@@ -1,0 +1,55 @@
+
+.popover
+  display: none
+  padding: 5px
+  position: absolute
+  top: 0
+  left: 0
+  min-width: 280px
+  z-index: $zindex_tips
+  &.top
+    margin-top: -5px
+  &.bottom
+    margin-top: 5px
+  &.left
+    margin-left: -5px
+  &.right
+    margin-left: 5px
+  &.top .arrow
+    +arrow_south(invert($body_bg))
+    bottom: 0
+    left: 50%
+  &.bottom .arrow
+    +arrow_north(invert($body_bg))
+    top: 0
+    left: 50%
+  &.left .arrow
+    +arrow_east(invert($body_bg))
+    top: 50%
+    right: 0
+  &.right .arrow
+    +arrow_west(invert($body_bg))
+    top: 50%
+    left: 0
+
+.popover-inner
+  +box-shadow($drop_dark)
+  background-color: $body_bg
+  border: 1px solid $component_border
+  border-radius: $radii
+  overflow: hidden
+
+.popover-title
+  +font-size(16)
+  background-clip: padding-box
+  background-color: $component_bg_hover
+  border-bottom: 1px solid $component_border_alt
+  border-radius: $radii $radii 0 0
+  padding: 0.625em 1em
+  line-height: 1
+
+.popover-content
+  background-clip: padding-box
+  border-radius: 0 0 $radii $radii
+  padding: 1em
+

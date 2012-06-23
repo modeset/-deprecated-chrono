@@ -1,0 +1,28 @@
+
+.modal-backdrop
+  +transition(opacity $speed)
+  background-color: $body_bg
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: $zindex_modal_backdrop
+  &.fade
+    +opacity(0)
+
+.modal-backdrop, .modal-backdrop.fade.in
+  +opacity(0.8)
+
+.modal
+  +box-sizing(border-box)
+  display: none
+  overflow: auto
+  position: fixed
+  top: 50%
+  left: 50%
+  width: 560px
+  max-height: 500px
+  margin: -250px 0 0 -280px
+  z-index: $zindex_modal
+

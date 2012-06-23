@@ -1,0 +1,8 @@
+
+// Box sizing content-box | border-box | inherit, matches compass and bourbon
+@mixin box-sizing ($type:border-box)
+  $box: unquote($type)
+  -webkit-box-sizing: $box
+  -moz-box-sizing: $box
+  box-sizing: $box
+

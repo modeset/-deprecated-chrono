@@ -1,0 +1,54 @@
+
+// Utility classes for use with @extension, or just common items found in every project!
+// All helpers are also available as mixins, following the same name
+
+// Utilizes the `micro clearfix` on pseudo elements for clearing floats
+.clearfixer
+  +clearfixer
+
+// Uses the standard clearfix of `overflow:hidden` found in Compass
+.clearfix
+  +clearfix
+
+// Image replacement
+.ir
+  +ir
+
+// Totally hidden from screen readers and browsers
+.hidden
+  +hidden
+
+// Reverse the effects of hidden
+.shown
+  +shown
+
+// Only visually hidden, still available to screen readers
+.visuallyhidden
+  +visuallyhidden
+
+// Reverse the settings applied by `.visuallyhidden`
+.visuallyshown
+  +visuallyshown
+
+// Hide visually and from screenreaders, but maintain layout
+.invisible
+  +invisible
+
+// The base `column` settings, should be extended by all columns
+.base-column
+  +base-column
+
+// An alternate base `column` which floats elements to the right
+.base-column-right
+  +base-column-right
+
+// The base `row` settings, should be extended by all rows
+.base-row
+  +base-row
+
+// Gabe, your welcome.
+.pull-left
+  float: left
+.pull-right
+  float: right
+

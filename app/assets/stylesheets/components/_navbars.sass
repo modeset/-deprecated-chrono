@@ -1,0 +1,105 @@
+
+.navbar
+  overflow: visible
+
+.navbar-inner
+  +box-shadow($drop_dark)
+  border-radius: $radii
+  background-color: $standard
+  font-weight: bold
+  text-shadow: $text_drop_lite
+
+.navbar-inner .nav
+  display: block
+  float: left
+  position: relative
+  left: 0
+
+.navbar .nav > li
+  display: block
+  float: left
+
+.navbar .nav > li > a
+  float: none
+  color: $link_normal
+  padding: 1em 0.75em
+  &:hover, &:active
+    background-color: $component_bg_hover
+    color: $link_hover
+
+.navbar .nav .active > a,
+.navbar .nav .active > a:hover,
+.navbar .nav .open > .dropdown-toggle,
+.navbar .nav .active > .dropdown-toggle,
+.navbar .nav .open.active > .dropdown-toggle
+  +box-shadow($inset_dark)
+  background-color: $primary
+  color: $standard
+  text-shadow: $text_inset_dark
+
+// Shared inner elements
+.navbar .brand,
+.navbar .plain-text,
+.navbar .button-group,
+.navbar form
+  display: block
+  float: left
+
+.navbar .brand,
+.navbar .plain-text
+  padding: 1em 0.75em
+
+.navbar .brand
+  color: $greyC
+
+.navbar .button-group,
+.navbar form
+  margin: 0.6em 0.75em
+
+// Dropdowns
+.navbar .dropdown-menu
+  font-weight: normal
+  text-shadow: none
+
+.navbar .nav .open.dropdown .caret,
+.navbar .nav .active .caret
+  border-top-color: $standard
+
+// Fixed Navbar
+.navbar.fixed
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  z-index: $zindex_navbar
+
+.navbar.fixed .navbar-inner
+  border-radius: 0
+
+// Redeclare for specificity
+.navbar .pull-right
+  float: right
+
+// Button for toggling navbar items in responsive layouts
+.btn-navbar
+  display: none
+  float: right
+  margin: 0.5em
+
+.btn-navbar .icon-bar
+  +box-shadow(0 1px 0 rgba($black, 0.25))
+  background-color: $white
+  display: block
+  width: 18px
+  height: 2px
+
+.btn-navbar .icon-bar + .icon-bar
+  margin-top: 3px
+
+.nav-collapse
+  -webkit-transform: translate3d(0, 0, 0)
+
+// Override the default collapsed state
+.nav-collapse.collapse
+  height: auto
+
