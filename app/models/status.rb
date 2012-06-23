@@ -19,8 +19,9 @@ class Status < ActiveRecord::Base
   end
 
   def duration_in_hours(rounded_to = 15.0)
-   round_quantity =  ((duration_in_minutes % 60) / rounded_to).round
-   round_quantity * (rounded_to / 60.0)
+    hours = (duration_in_minutes / 60).floor
+    round_quantity =  ((duration_in_minutes % 60) / rounded_to).round
+    round_quantity * (rounded_to / 60.0)
   end
 
   def previous_status
