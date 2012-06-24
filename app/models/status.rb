@@ -2,6 +2,8 @@ class Status < ActiveRecord::Base
 
   attr_accessible :message
 
+  validates :message, presence: true
+
   belongs_to :user
 
   def ended_at
