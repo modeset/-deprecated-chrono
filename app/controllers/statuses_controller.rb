@@ -8,7 +8,7 @@ class StatusesController < ApplicationController
 
   def index
     @status = Status.new
-    @statuses = current_user.statuses
+    @statuses = current_user.statuses.order('created_at DESC')
     respond_with @statuses
   end
 
