@@ -7,19 +7,17 @@
         Out
       = f.submit 'Update', :class => 'btn primary'
 
-%table.vborder
-  %thead
-    %tr
-      %th(colspan=2)
-  %tfoot
-    %tr
-      %td(colspan=2)
-  - @statuses.group_by { |s| s.ended_at.to_date }.each do |day, statuses|
-    %tr
-      %td
-        %h4= day.to_s(:short)
-      %td
-        %h4= "#{statuses.sum(&:duration_in_hours)} hours"
+- @statuses.group_by { |s| s.ended_at.to_date }.each do |day, statuses|
+  %table.vborder.thead-decorate
+    %thead
+      %tr
+        %th
+          %h4= day.to_s(:short)
+        %th
+          %h4= "#{statuses.sum(&:duration_in_hours)} hours"
+    %tfoot
+      %tr
+        %td(colspan=2)
     - statuses.each do |status|
       %tr
         %td.message
