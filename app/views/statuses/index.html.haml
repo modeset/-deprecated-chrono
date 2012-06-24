@@ -2,6 +2,9 @@
   %ol
     %li
       = f.text_field :message, :label => false, :class => 'input-medium'
+      %label(for='status_is_clock_out')
+        = f.check_box :is_clock_out
+        Out
       = f.submit 'Update', :class => 'btn primary'
 
 %table.vborder

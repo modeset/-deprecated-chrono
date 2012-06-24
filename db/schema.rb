@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120623025652) do
+ActiveRecord::Schema.define(:version => 20120624231743) do
 
   create_table "statuses", :force => true do |t|
     t.string   "message"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.integer  "user_id"
+    t.boolean  "is_clock_out", :default => false, :null => false
   end
 
   create_table "users", :force => true do |t|

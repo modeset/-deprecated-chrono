@@ -8,7 +8,7 @@ class StatusesController < ApplicationController
 
   def index
     @status = Status.new
-    @statuses = current_user.statuses.order('created_at DESC')
+    @statuses = current_user.statuses.where(:is_clock_out => false).order('created_at DESC')
     respond_with @statuses
   end
 

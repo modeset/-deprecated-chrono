@@ -1,8 +1,7 @@
 class Status < ActiveRecord::Base
 
-  attr_accessible :message
-
-  validates :message, presence: true
+  attr_accessible :message,
+                  :is_clock_out
 
   belongs_to :user
 
