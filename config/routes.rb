@@ -1,6 +1,6 @@
 Chrono::Application.routes.draw do
 
-  resources :statuses, :only => [ :index, :create ]
+  resources :statuses, :only => [ :index, :create, :destroy ]
 
   resource :profile, :only => :show
 

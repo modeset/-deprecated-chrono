@@ -14,7 +14,15 @@ class StatusesController < ApplicationController
 
   def create
     @status = current_user.statuses.create params[:status]
+    flash[:notice] = 'Status was created'
     respond_with @status, location: statuses_path
+  end
+
+  def destroy
+    @status = current_user.statuses.find(params[:id])  
+    @status.destroy
+    flash[:notice] = 'Status was destroyed'
+    respond_with @status
   end
 
 end

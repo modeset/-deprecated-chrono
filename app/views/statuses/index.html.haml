@@ -24,5 +24,7 @@
           = status.message
           - if status.current?
             %span.decal.primary Current
-        %td.duration= "#{number_with_precision(status.duration_in_hours, precision: 2, strip_insignificant_zeros: true)} hours"
+        %td.duration
+          = "#{number_with_precision(status.duration_in_hours, precision: 2, strip_insignificant_zeros: true)} hours"
+          = link_to '&times;'.html_safe, status_path(status), :method => :delete, :class => 'close', :confirm => 'Are you sure?'
 
