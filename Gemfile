@@ -34,8 +34,9 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 group :development, :test do
-  gem 'rspec'
+  gem 'rspec-rails'
   gem 'pry'
+  gem 'shoulda-matchers'
 end
 
 # Heroku
