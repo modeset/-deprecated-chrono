@@ -9,11 +9,17 @@
   %tfoot
     %tr
       %td(colspan=2)
-  - @statuses.each do |status|
+  - @statuses.group_by { |s| s.ended_at.to_date }.each do |day, statuses|
     %tr
-      %td.message
-        = status.message
-        - if status.current?
-          %span.decal.primary Current
-      %td.duration= "#{number_with_precision(status.duration_in_hours, precision: 2, strip_insignificant_zeros: true)} hours"
+      %td
+        %h4= day.to_s(:short)
+      %td
+        %h4= "#{statuses.sum(&:duration_in_hours)} hours"
+    - statuses.each do |status|
+      %tr
+        %td.message
+          = status.message
+          - if status.current?
+            %span.decal.primary Current
+        %td.duration= "#{number_with_precision(status.duration_in_hours, precision: 2, strip_insignificant_zeros: true)} hours"
 

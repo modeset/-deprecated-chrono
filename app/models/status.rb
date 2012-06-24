@@ -4,12 +4,16 @@ class Status < ActiveRecord::Base
 
   belongs_to :user
 
-  def duration_in_seconds
+  def ended_at
     if self.next_status.present?
-      self.next_status.created_at - self.created_at
+      self.next_status.created_at
     else
-      Time.zone.now - self.created_at
+      Time.zone.now
     end
+  end
+
+  def duration_in_seconds
+    self.ended_at - self.created_at
   end
 
   def duration_in_minutes
