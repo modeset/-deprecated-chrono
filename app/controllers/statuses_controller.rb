@@ -18,6 +18,17 @@ class StatusesController < ApplicationController
     respond_with @status, location: statuses_path
   end
 
+  def edit
+    @status = current_user.statuses.find(params[:id])  
+    respond_with @status
+  end
+
+  def update
+    @status = current_user.statuses.find(params[:id])  
+    @status.update_attributes params[:status]
+    respond_with @status
+  end
+
   def destroy
     @status = current_user.statuses.find(params[:id])  
     @status.destroy

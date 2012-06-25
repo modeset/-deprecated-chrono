@@ -1,0 +1,6 @@
+= semantic_form_for @status, :html => { :class => 'well form-horizontal' } do |f|
+  = f.inputs do
+    = f.input :message
+    = f.input :created_at, :as => :datetime
+  .buttons
+    = f.actions :submit

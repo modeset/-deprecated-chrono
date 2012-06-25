@@ -21,7 +21,7 @@
     - statuses.each do |status|
       %tr
         %td.message
-          = status.message
+          = link_to status.message, edit_status_path(status)
           - if status.current?
             %span.decal.primary Current
         %td.duration
