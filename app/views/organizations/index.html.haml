@@ -1,0 +1,10 @@
+- @organizations.each do |o|
+  %table.thead-decorate.banded
+    %thead
+      %tr
+        %th(colspan=2)= o.name
+    - o.users.each do |u|
+      %tr
+        %td= u.name
+        %td= u.statuses.order('created_at DESC').last.try(:message)
+

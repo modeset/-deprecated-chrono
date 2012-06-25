@@ -22,7 +22,9 @@
             = image_tag 'modeset-logotype-800x80.png', :width => '100'
           %nav.nav-collapse#collapse_example
             %ul.nav
-              %li.active
+              %li{ :class => request.path =~ /organizations/ ? 'active' : ''}
+                = link_to 'Dashboard', organizations_path
+              %li{ :class => request.path =~ /statuses/ ? 'active' : ''}
                 = link_to 'Status', statuses_path
             %section.pull-right
               %ul.nav

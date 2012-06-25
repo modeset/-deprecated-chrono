@@ -4,6 +4,8 @@ Chrono::Application.routes.draw do
 
   resource :profile, :only => :show
 
+  resources :organizations
+
   # Omniauth Callback Routes
   match '/auth/:provider/callback', to: 'sessions#create'
 
