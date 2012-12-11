@@ -1,0 +1,2 @@
+before_install:
+  - cp config/database.ci.yml config/database.yml
