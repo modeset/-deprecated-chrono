@@ -8,7 +8,7 @@
       = f.submit 'Update', :class => 'btn primary'
 
 - @statuses.group_by { |s| s.ended_at.to_date }.each do |day, statuses|
-  %table.vborder.thead-decorate
+  %table.vborder.thead-decorate#statuses
     %thead
       %tr
         %th
