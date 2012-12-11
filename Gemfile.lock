@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/thoughtbot/capybara-webkit.git
+  revision: 808e23a20827d6856450171280130d30ffdb82c6
+  specs:
+    capybara-webkit (0.13.0)
+      capybara (>= 2.0.1)
+      json
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -187,6 +195,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  capybara-webkit!
   coffee-rails (~> 3.2.1)
   formtastic
   ghee
