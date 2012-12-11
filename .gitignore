@@ -16,3 +16,10 @@
 
 # Ignore database.yml
 config/database.yml
+
+# Ignore generated assets
+public/assets
+
+# Ignore local environment configs
+/.rspec
+/.powenv
