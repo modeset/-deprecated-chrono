@@ -1,4 +1,4 @@
-before_install:
+before_script:
   - cp config/database.ci.yml config/database.yml
   - bundle exec rake db:create:all
   - bundle exec rake db:schema:load
