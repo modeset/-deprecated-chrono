@@ -34,12 +34,9 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'rspec-rails'
   gem 'pry'
-  gem 'cucumber-rails'
-  gem 'database_cleaner'
-  gem 'shoulda-matchers'
 end
 
-# Heroku
-group :production do
-  gem 'pg'
+group :test do
+  gem 'capybara'
+  gem 'shoulda-matchers'
 end
