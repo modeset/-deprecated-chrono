@@ -196,6 +196,7 @@ DEPENDENCIES
   pg
   pry
   rails (= 3.2.9)
+  rake
   responders
   rspec-rails
   sass-rails (~> 3.2.3)
