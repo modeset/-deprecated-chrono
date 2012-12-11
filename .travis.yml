@@ -1,2 +1,4 @@
 before_install:
   - cp config/database.ci.yml config/database.yml
+  - rake db:create:all
+  - rake db:schema:load
