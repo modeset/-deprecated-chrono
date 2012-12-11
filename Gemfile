@@ -1,6 +1,6 @@
-source 'https://rubygems.org'
+source :rubygems
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.9'
 gem 'pg'
 
 # Bundle edge Rails instead:
