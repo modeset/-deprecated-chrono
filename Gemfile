@@ -39,6 +39,7 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'capybara-webkit', github: 'thoughtbot/capybara-webkit'
+  gem 'launchy'
   gem 'shoulda-matchers'
+  gem 'timecop'
 end
