@@ -1,4 +1,4 @@
-= form_for @status, :html => { :class => 'form-inline well dark' } do |f|
+= form_for Status.new, :html => { :class => 'form-inline well dark' } do |f|
   %ol
     %li
       = f.text_field :message, :label => false, :class => 'input-medium'
@@ -7,14 +7,14 @@
         Out
       = f.submit 'Update', :class => 'btn primary'
 
-- @statuses.group_by { |s| s.ended_at.to_date }.each do |day, statuses|
+- @status_groups.each do |day, statuses|
   %table.vborder.thead-decorate.statuses
     %thead
       %tr
         %th
-          %h4= day.to_s(:short)
+          %h4= day.to_date.to_formatted_s(:short)
         %th
-          %h4= "#{statuses.sum(&:duration_in_hours)} hours"
+          %h4= "#{number_with_precision(statuses.reject(&:is_clock_out?).sum(&:duration_in_hours), precision: 2, strip_insignificant_zeros: true)} hours"
     %tfoot
       %tr
         %td(colspan=2)
@@ -22,8 +22,11 @@
       %tr
         %td.message
           = link_to status.message, edit_status_path(status)
-          - if status.current?
+          - if status.is_clock_out?
+            %span.decal.primary Out
+          - elsif status.current?
             %span.decal.primary Current
+
         %td.duration
           = "#{number_with_precision(status.duration_in_hours, precision: 2, strip_insignificant_zeros: true)} hours"
           = link_to '&times;'.html_safe, status_path(status), :method => :delete, :class => 'close', :confirm => 'Are you sure?'

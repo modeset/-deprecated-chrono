@@ -7,8 +7,7 @@ class StatusesController < ApplicationController
   respond_to :html, :json
 
   def index
-    @status = Status.new
-    @statuses = current_user.statuses.where(:is_clock_out => false).order('created_at DESC')
+    @status_groups = current_user.statuses.order('created_at DESC').group_by { |s| s.ended_at.at_beginning_of_day }
     respond_with @statuses
   end
 
@@ -19,12 +18,12 @@ class StatusesController < ApplicationController
   end
 
   def edit
-    @status = current_user.statuses.find(params[:id])  
+    @status = current_user.statuses.find(params[:id])
     respond_with @status
   end
 
   def update
-    @status = current_user.statuses.find(params[:id])  
+    @status = current_user.statuses.find(params[:id])
     @status.update_attributes params[:status]
     respond_with @status
   end
