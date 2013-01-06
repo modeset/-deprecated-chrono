@@ -18,7 +18,7 @@ class Status < ActiveRecord::Base
   end
 
   def duration_in_minutes
-    duration_in_minutes = duration_in_seconds / 1.minute
+    duration_in_seconds / 1.minute
   end
 
   def duration_in_hours(rounded_to = 15.0)
